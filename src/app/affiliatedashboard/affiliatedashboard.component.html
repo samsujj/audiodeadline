@@ -1,0 +1,161 @@
+<div class="container-fluid dashboard_body">
+  <div class="dashboard_wrappertop">
+    <div class="dashboradtoplogo">
+      <img src="../../assets/images/logo.png">
+    </div>
+  </div>
+  <div class="row rowmaindiv">
+    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 dashboard_left">
+      <app-adminleft></app-adminleft>
+    </div>
+    <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 dashboard_right">
+      <div class="dashboard_right_wrapper">
+        <div class="dashboard1_div1">
+          <h4>Dashboard</h4>
+          <div class="dashboardwrapper">
+            <form method="post" action="">
+              <div class="row socialmediadiv">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 socialmedia socialmedia_left">
+                  <div class="dashboard1form">
+                    <h2 class="headersocialbroadcast">My Profile</h2>
+                    <div class="form-group" *ngIf="userdetails">
+                      <span><label>Name:</label> {{userdetails.firstname}} {{userdetails.lastname}}</span>
+                    </div>
+                    <div class="form-group" *ngIf="userdetails">
+                      <span><label>Email:</label> {{userdetails.email}}</span>
+                    </div>
+                    <div class="form-group" *ngIf="userdetails">
+                      <span><label>Joining Date:</label> {{(userdetails.added_time*1000) | date:'MM-dd-yyyy'}}</span>
+                    </div>
+                    <div class="form-group" *ngIf="userdetails" style="word-break: break-all;">
+                      <span>
+                        <label>Audiodeadline Signup link:</label>
+                        <span class="linksharedivnew">
+                          <code style="padding-left: 0;">https://audiodeadline.com/signup/{{userdetails.username}}/audiodeadline_banner_1</code>
+                        </span>
+                      </span>
+                    </div>
+                    <div class="form-group" *ngIf="userdetails">
+                      <button type="button" class="copybtn" (click)="copyText('https://audiodeadline.com/signup/'+userdetails.username+'/audiodeadline_banner_1')"><span>Grab Url</span></button>
+                    </div>
+                    <div class="form-group" *ngIf="userdetails" style="word-break: break-all;">
+                      <span>
+                        <label>Artist XP Signup link:</label>
+                        <span class="linksharedivnew">
+                          <code style="padding-left: 0;">https://artistxp.com/signup/{{userdetails.username}}/artistxp_banner_1</code>
+                        </span>
+                      </span>
+                    </div>
+                    <div class="form-group" *ngIf="userdetails">
+                      <button type="button" class="copybtn" (click)="copyText('https://artistxp.com/signup/'+userdetails.username+'/artistxp_banner_1')"><span>Grab Url</span></button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 socialmedia socialmedia_right"  *ngIf="!enrollerdetails" style="border: none;"></div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 socialmedia socialmedia_right"  *ngIf="enrollerdetails">
+                  <div class="dashboard1form" *ngIf="enrollerdetails">
+                    <h2 class="headersocialbroadcast">Enroller Information</h2>
+                    <div class="form-group">
+                      <span><label>Name:</label> {{enrollerdetails.firstname}} {{enrollerdetails.lastname}}</span>
+                    </div>
+                    <div class="form-group">
+                      <span><label>Email:</label> {{enrollerdetails.email}}</span>
+                    </div>
+                    <div class="form-group">
+                      <span><label>User Name:</label> {{enrollerdetails.username}}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div class="row socialsinglepostlists">
+              <div class="col-md-12 col-sm-12 col-xs-12 socialsinglepost">
+                <div class="row socialsinglepostcontent">
+                  <h2><span><img src="../../assets/images/logo.png"></span> Banner For Audiodeadline</h2>
+                  <div class="col-md-4 col-sm-6 col-xs-12 socialsinglepostcontentinner" *ngFor="let item of bannerlist1">
+                    <p>https://audiodeadline.com/signup/{{username}}/{{item.name}}</p>
+                    <div class="socialsinglepostimgwrapper">
+                      <img src="../../assets/images/{{item.image}}">
+                    </div>
+                    <div class="socialsinglepostright">
+                      <div class="btnsocialsharenewlists">
+                        <a class="btnsocialsharenew btnfb" href="javascript:void(0)" (click)="postinfb(username,item.name,item.image)">Post In Facebook</a>
+                        <a class="btnsocialsharenew btntwit" href="https://twitter.com/intent/tweet?url=http%3A%2F%2Faudiodeadline.com%2Fsharetool1.php%3Fmedia_id%3D{{item.name}}%26username%3D{{username}}%26image%3D{{item.image}}" target="_blank">Post In Twitter</a>
+                        <a class="btnsocialsharenew btnin" href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Faudiodeadline.com%2Fsharetool1.php%3Fmedia_id%3D{{item.name}}%26username%3D{{username}}%26image%3D{{item.image}}" target="_blank">Post In Linkedin</a>
+                        <a class="btnsocialsharenew btntumblr" href="https://www.tumblr.com/widgets/share/tool?shareSource=legacy&canonicalUrl=http%3A%2F%2Faudiodeadline.com%2Fsharetool1.php%3Fmedia_id%3D{{item.name}}%26username%3D{{username}}%26image%3D{{item.image}}&posttype=link" target="_blank">Post In Tumblr</a>
+                        <a class="btnsocialsharenew btngplus" href="https://plus.google.com/share?url=http%3A%2F%2Faudiodeadline.com%2Fsharetool1.php%3Fmedia_id%3D{{item.name}}%26username%3D{{username}}%26image%3D{{item.image}}" target="_blank">Post In Google+</a>
+                        <a class="btn btnsocialsharenew btngrapurl" href="javascript:void(0)" (click)="copyText('http://audiodeadline.com/sharetool1.php?media_id='+item.name+'&username='+username+'&image='+item.image)"><span>Grab URL</span></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row socialsinglepostlists">
+              <div class="col-md-12 col-sm-12 col-xs-12 socialsinglepost">
+                <div class="row socialsinglepostcontent">
+                  <h2><span><img src="../../assets/images/landing-logo-artistxp.png"></span> Banner For ArtistXP</h2>
+                  <div class="col-md-4 col-sm-6 col-xs-12 socialsinglepostcontentinner" *ngFor="let item of bannerlist2">
+                    <p>https://artistxp.com/signup/{{username}}/{{item.name}}</p>
+                    <div class="socialsinglepostimgwrapper">
+                      <img src="../../assets/images/{{item.image}}">
+                    </div>
+                    <div class="socialsinglepostright">
+                      <div class="btnsocialsharenewlists">
+                        <a class="btnsocialsharenew btnfb" href="javascript:void(0)" (click)="postinfb2(username,item.name,item.image)">Post In Facebook</a>
+                        <a class="btnsocialsharenew btntwit" href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fartistxp.com%2Fsharetool2.php%3Fmedia_id%3D{{item.name}}%26username%3D{{username}}%26image%3D{{item.image}}" target="_blank">Post In Twitter</a>
+                        <a class="btnsocialsharenew btnin" href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Fartistxp.com%2Fsharetool2.php%3Fmedia_id%3D{{item.name}}%26username%3D{{username}}%26image%3D{{item.image}}" target="_blank">Post In Linkedin</a>
+                        <a class="btnsocialsharenew btntumblr" href="https://www.tumblr.com/widgets/share/tool?shareSource=legacy&canonicalUrl=http%3A%2F%2Fartistxp.com%2Fsharetool2.php%3Fmedia_id%3D{{item.name}}%26username%3D{{username}}%26image%3D{{item.image}}&posttype=link" target="_blank">Post In Tumblr</a>
+                        <a class="btnsocialsharenew btngplus" href="https://plus.google.com/share?url=http%3A%2F%2Fartistxp.com%2Fsharetool2.php%3Fmedia_id%3D{{item.name}}%26username%3D{{username}}%26image%3D{{item.image}}" target="_blank">Post In Google+</a>
+                        <a class="btn btnsocialsharenew btngrapurl" href="javascript:void(0)" (click)="copyText('http://artistxp.com/sharetool2.php?media_id='+item.name+'&username='+username+'&image='+item.image)"><span>Grab URL</span></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row socialsinglepostlists">
+              <div class="col-md-12 col-sm-12 col-xs-12 socialsinglepost">
+                <div class="row socialsinglepostcontent">
+                  <h2><span><img src="../../assets/images/logo.png"></span> Instagram Banner For Audiodeadline</h2>
+                  <div class="col-md-4 col-sm-6 col-xs-12 socialsinglepostcontentinner" *ngFor="let item of instabannerlist1">
+                    <div class="socialsinglepostimgwrapper">
+                      <img src="../../assets/images/{{item.image}}">
+                    </div>
+                    <div class="socialsinglepostright">
+                      <div class="btnsocialsharenewlists">
+                        <a class="btn btnsocialsharenew btngrapurl" href="https://audiodeadline.com/assets/images/{{item.image}}" download><span>Download</span></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row socialsinglepostlists">
+              <div class="col-md-12 col-sm-12 col-xs-12 socialsinglepost">
+                <div class="row socialsinglepostcontent">
+                  <h2><span><img src="../../assets/images/landing-logo-artistxp.png"></span> Instagram Banner For ArtistXP</h2>
+                  <div class="col-md-4 col-sm-6 col-xs-12 socialsinglepostcontentinner" *ngFor="let item of instabannerlist2">
+                    <div class="socialsinglepostimgwrapper">
+                      <img src="../../assets/images/{{item.image}}">
+                    </div>
+                    <div class="socialsinglepostright">
+                      <div class="btnsocialsharenewlists">
+                        <a class="btn btnsocialsharenew btngrapurl" href="https://audiodeadline.com/assets/images/{{item.image}}" download target="_blank"><span>Download</span></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
