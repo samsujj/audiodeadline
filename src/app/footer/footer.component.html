@@ -1,0 +1,48 @@
+<div class="container-fluid footer_area">
+  <div class="row">
+    <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12 pull-left copyrightdiv">
+      <p>©2017 COPYRIGHT by Audio Deadline</p>
+    </div>
+    <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12 pull-right footerrightdiv">
+      <div class="row">
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 footerrightdivsocial">
+          <ul class="list-inline socialmediaftlinks">
+            <li class="list-inline-item"><span>Follow us on</span> <a href="https://www.facebook.com/audiodeadline/" target="_blank"><img src="../../assets/images/ft-fbicon.png"></a></li>
+            <li class="list-inline-item"><span>RSVP of our LA Networking Event</span> <a  [routerLink]="['/LaEvent']"><img src="../../assets/images/ft-rsvpicon.png"></a></li>
+            <!--<li class="list-inline-item"><a href="" target="_blank"><img src="<?php /*echo get_template_directory_uri(); */?>/images/ft-twicon.png"></a></li>
+            <li class="list-inline-item"><a href="" target="_blank"><img src="<?php /*echo get_template_directory_uri(); */?>/images/ft-blogicon.png"></a></li>
+            <li class="list-inline-item"><a href="" target="_blank"><img src="<?php /*echo get_template_directory_uri(); */?>/images/ft-linkdinicon.png"></a></li>
+-->          </ul>
+        </div>
+        <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 ">
+          <div class="footernav">
+
+            <ul>
+              <li class="ssd lidiv0 active"><a class="dropdown-toggle" [routerLink]="['']"> home </a></li>
+              <li class="ssd lidiv1 "><a class="dropdown-toggle" [routerLink]="['/host-flii-stylz']"> Host Flii Stylz </a></li>
+              <li class="ssd lidiv2 "><a class="dropdown-toggle" [routerLink]="['/signup/']"> Get Streaming Tickets </a></li>
+              <li class="ssd lidiv3 "><a class="dropdown-toggle"  target="_blank" href="https://audiodeadline.com/AudioDeadlineSponsorshipDeck_WEBSITE.pdf"> Sponsors </a></li>
+              <li class="ssd lidiv4 "><a class="dropdown-toggle" [routerLink]="['/dates/']"> Dates </a></li>
+              <li class="ssd lidiv5 "><a class="dropdown-toggle" [routerLink]="['/team/']"> Team </a></li>
+              <li class="ssd lidiv6 "><a class="dropdown-toggle" href="http://artistxp.com/" target="_blank"> ArtistXP Social </a></li>
+              <li class="ssd lidiv7 "><a class="dropdown-toggle" [routerLink]="['/contactus']" > Contact </a></li>
+              <!-- <li class="ssd lidiv1 "><a class="dropdown-toggle" [routerLink]="['/aboutaudiodeadline']"> About Audio Deadline </a></li>
+               <li class="ssd lidiv2 "><a class="dropdown-toggle" [routerLink]="['/community']"> Community </a></li>
+               <li class="ssd lidiv3 "><a class="dropdown-toggle" [routerLink]="['/affiliate']"> Affiliate </a></li>
+               <li class="ssd lidiv4 "><a class="dropdown-toggle" [routerLink]="['/contactus']"> Contact Us </a></li>-->
+              <li class="ssd lidiv4 " *ngIf="!isLoggedIn"><a class="dropdown-toggle" [routerLink]="['/login']"> <span>Log In</span> </a></li>
+            </ul>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
